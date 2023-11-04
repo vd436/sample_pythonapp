@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - $(aws ecr get-login --no-include-email --region us-east-1)
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/k2w3e6a8
       - docker build -t my-app:latest .
       - docker tag my-app:latest public.ecr.aws/k2w3e6a8/mysampleapp:latest
   post_build:
