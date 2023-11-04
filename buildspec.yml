@@ -3,7 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-      - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      - $(aws ecr get-login --no-include-email --region us-east-1)
       - docker build -t my-app:latest .
       - docker tag my-app:latest public.ecr.aws/k2w3e6a8/mysampleapp:latest
   post_build:
